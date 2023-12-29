@@ -80,7 +80,6 @@ function Search({
 	}
 
 	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-		console.log(e.target.value);
 		const term = String(e.target.value).toUpperCase();
 		setSearch(term);
 	}
@@ -99,7 +98,6 @@ function Search({
 						type="text"
 						name="search"
 						placeholder="Capsule serial eg C101"
-						value={search}
 						onChange={handleChange}
 					/>
 					<select
