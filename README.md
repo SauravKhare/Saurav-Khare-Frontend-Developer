@@ -1,4 +1,4 @@
-Built with Vite, React, Tailwind, SpaceX API (third party).
+Built with Vite, React, Tailwind, SpaceX API (third party) and with "as fewer libraries as possible"
 
 To run locally: `npm run dev`
 
