@@ -17,7 +17,13 @@ function Modal({
 				onClick={() => handleModal(!isOpen)}
 				className="bg-zinc-950 bg-opacity-95 fixed w-full h-full top-0 left-0 flex items-center justify-center"
 			>
-				<div className="font-geist font-regular rounded absolute bg-white text-black p-10 w-6/12">
+				<div className="flex flex-col font-geist font-regular rounded absolute bg-white text-black md:p-10 p-2 md:w-6/12">
+					<div
+						onClick={() => handleModal(!isOpen)}
+						className="ml-auto cursor-pointer"
+					>
+						x
+					</div>
 					<p className="border-b-2 py-2">
 						Capsule Serial : {data.capsule_serial}
 					</p>
@@ -29,7 +35,6 @@ function Modal({
 							date.getMonth() + 1
 						} / ${date.getFullYear()}`}
 					</p>
-
 					{data.missions.length > 0 ? (
 						<p className="border-b-2 py-2">
 							{data.missions.map((item) => (
@@ -39,7 +44,6 @@ function Modal({
 							))}
 						</p>
 					) : null}
-
 					<p className="border-b-2 py-2">
 						This capsule has landed {data.landings} times.
 					</p>
