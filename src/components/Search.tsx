@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { CapsuleType, CapStatus, CapTypes } from "../types";
 
 function Search({
@@ -9,6 +10,7 @@ function Search({
 	search: string;
 	setSearch: (x: string) => React.Dispatch<Event>;
 }) {
+	const [button, setButton] = useState(false);
 	async function getCaps() {
 		const req = await fetch("https://api.spacexdata.com/v3/capsules");
 		const res = await req.json();
@@ -95,6 +97,7 @@ function Search({
 			setSearch("");
 		} else {
 			setSearch(term);
+			setButton(true);
 		}
 	}
 
@@ -136,7 +139,10 @@ function Search({
 						<option value="Dragon 1.1">Dragon 1.1</option>
 						<option value="Dragon 2.0">Dragon 2.0</option>
 					</select>
-					<button className="text-black bg-white py-3 px-5 font-geist transition-scale duration-500 hover:scale-105">
+					<button
+						disabled={!button}
+						className="text-black bg-white py-3 px-5 font-geist transition-scale duration-500 hover:scale-105"
+					>
 						Search
 					</button>
 				</form>
