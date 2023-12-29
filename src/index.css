@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url("../public/fonts/Geist/Geist-Regular.woff2");
+@import url("../public/fonts/Geist/Geist-SemiBold.woff2");
+@import url("../public/fonts/Geist/Geist-Bold.woff2"); */
+@import url("../public/fonts/Geist/GeistVariableVF.ttf");
+@import url("../public/fonts/Geist/GeistVariableVF.woff2");
+@import url("../public/fonts/Geist/GeistMonoVariableVF.ttf");
+@import url("../public/fonts/Geist/GeistMonoVariableVF.woff2");
+
+.embla__slide {
+	flex: 0 0 100%;
+	min-width: 0;
+	/* max-width: 100%; */
+  margin-right: 10%;
+}
