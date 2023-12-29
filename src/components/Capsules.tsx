@@ -3,6 +3,7 @@ import Modal from "./Modal";
 import { CapsuleType } from "../types";
 import Loader from "./Loader";
 import Search from "./Search";
+import NoResult from "./NoResult";
 
 function Capsules() {
 	const [caps, setCaps] = useState([]);
@@ -68,7 +69,9 @@ function Capsules() {
 				</div>
 			</section>
 		);
-	} else {
+	} else if (search.length === 0) {
+		return <NoResult />;
+	} else if (caps.length <= 0) {
 		return <Loader textColor="text-white" />;
 	}
 }

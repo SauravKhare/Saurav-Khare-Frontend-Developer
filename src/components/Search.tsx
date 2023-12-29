@@ -76,12 +76,26 @@ function Search({
 		const searchedCaps = capsules.filter(
 			(cap: CapsuleType) => cap.capsule_serial === search
 		);
-		search ? setCaps(searchedCaps) : setCaps(capsules);
+		if (searchedCaps.length >= 0) {
+			setCaps(searchedCaps);
+			setSearch(search);
+		} else {
+			setSearch("");
+			setCaps(searchedCaps);
+		}
 	}
 
-	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+	async function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const term = String(e.target.value).toUpperCase();
-		setSearch(term);
+		const capsules = await getCaps();
+		const search = capsules.filter(
+			(cap: CapsuleType) => cap.capsule_serial === term
+		);
+		if (search.length <= 0) {
+			setSearch("");
+		} else {
+			setSearch(term);
+		}
 	}
 
 	return (

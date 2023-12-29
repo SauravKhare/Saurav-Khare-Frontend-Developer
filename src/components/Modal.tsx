@@ -38,7 +38,7 @@ function Modal({
 					{data.missions.length > 0 ? (
 						<p className="border-b-2 py-2">
 							{data.missions.map((item) => (
-								<span>
+								<span key={item.name}>
 									Mission: {item.name} | Flight: {item.flight}
 								</span>
 							))}
